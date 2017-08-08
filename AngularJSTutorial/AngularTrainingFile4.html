@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <title>Document</title>
 </head>
-<body>
 
-    <div ng-app="myApp" ng-controller="myCtrl">
-        First Name: <input type="text" ng-model="firstName"><br>
-        Last Name: <input type="text" ng-model="lastName"><br>
-        <br>
-        Full Name: {{firstName + " " + lastName}}
+<body ng-app="myApp">
 
+    <div ng-controller="myCtrl">
+        First Name: <input type="text" ng-model="firstName"><br> Last Name: <input type="text" ng-model="lastName"><br>
+        <br> Full Name: {{firstName + " " + lastName}}
+        
     </div>
 
-    <div ng-init="myCol='lightblue'">
-        <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+    <div ng-controller="myCtrl2">
+        <input type="text" style="background-color:{{myCol}}" ng-model="myCol">
     </div>
-    
+
     <script>
         var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope) {
-            $scope.firstName= "John";
-            $scope.lastName= "Doe";
+        app.controller('myCtrl', function ($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
         });
-    </script>    
+
+        app.controller('myCtrl2', function ($scope) {
+            $scope.myCol = "lightblue";
+        });
+    </script>
 </body>
+
 </html>
-
-
-
